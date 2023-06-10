@@ -1,0 +1,142 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap");
+* {
+  box-sizing: border-box;
+  margin: auto;
+}
+
+body {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  background: #444654;
+  font-family: Lato;
+  perspective: 1440px;
+}
+
+#testimonials {
+  width: 100%;
+  height: 100%;
+}
+#testimonials .container {
+  width: 100%;
+  height: 100%;
+  padding: 0 11vw;
+  display: flex;
+  flex-wrap: wrap;
+}
+#testimonials .container .struct {
+  width: 50%;
+  min-width: 400px;
+  aspect-ratio: 2/1;
+  padding: 40px;
+}
+#testimonials .container .struct.full {
+  width: 100%;
+}
+#testimonials .container .struct:nth-of-type(2n) .frame svg {
+  transform: rotateY(180deg);
+}
+#testimonials .container .struct:nth-of-type(2n) .frame .img {
+  left: 100%;
+}
+#testimonials .container .frame {
+  position: relative;
+  padding: 40px;
+  min-height: 100%;
+  transition: transform 0.3s ease;
+}
+#testimonials .container .frame:hover {
+  transform: scale(1.12);
+}
+#testimonials .container .frame:hover .bg {
+  transform: scale(1.1, 1.15);
+}
+#testimonials .container .frame:hover svg rect {
+  animation: none;
+  stroke-dashoffset: 0;
+}
+#testimonials .container .frame .bg {
+  --conic: null;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 20px;
+  z-index: -2;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+#testimonials .container .frame .bg::before {
+  content: "";
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  left: -25%;
+  top: -25%;
+  background: conic-gradient(var(--conic));
+  filter: blur(150px);
+  animation: spin 1s linear infinite;
+}
+#testimonials .container .frame .img {
+  position: absolute;
+  width: 15%;
+  max-width: 80px;
+  aspect-ratio: 1;
+  top: 0;
+  left: 0;
+  display: flex;
+  background-color: #75a99c;
+  background-position: center;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+#testimonials .container .frame .img span {
+  font-size: 200%;
+  color: #f0f0f0;
+  text-shadow: 0 0 5px #0f0f0f;
+}
+#testimonials .container .frame svg {
+  position: absolute;
+  width: 110%;
+  height: 110%;
+  top: -5%;
+  left: -5%;
+  z-index: -1;
+}
+#testimonials .container .frame svg rect {
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  fill: #303030;
+  rx: 10px;
+  stroke-width: 5px;
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+  stroke-linejoin: round;
+  transform: translate(5%, 5%);
+  animation: ring 2s linear infinite;
+}
+#testimonials .container .frame figure {
+  color: #f0f0f0;
+  font-size: 1.1rem;
+  line-height: 1.68rem;
+}
+#testimonials .container .frame figure figcaption {
+  text-align: right;
+}
+
+@keyframes ring {
+  0%, 10% {
+    stroke-dashoffset: 2000;
+  }
+  90%, 100% {
+    stroke-dashoffset: -2000;
+  }
+}
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}

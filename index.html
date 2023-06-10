@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Diario de Bordo 2l3</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="testimonials">
+  <div class="container" data-bind="foreach: testimonials">
+    <div class="struct">
+      <div class="frame">
+        <div class="bg" data-bind="style:{'--conic': colors.join(',')}"></div>
+        <svg preserveAspectRatio="none" viewBox="0 0 320 160">
+          <rect data-bind="style:{stroke: mainColor}"></rect>
+        </svg>
+        <div class="img" data-bind="style:{backgroundImage: 'url('+img+')',backgroundColor: mainColor}"><span data-bind="text: img=='' ? author.split(' ').map(w=&gt;w.charAt(0)).join('') :''"></span></div>
+        <figure>
+          <blockquote data-bind="{html: quote}"></blockquote>
+          <figcaption data-bind="text: '- '+author"></figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- partial -->
+  <script type="module" src="./script.js"></script>
+
+</body>
+</html>
